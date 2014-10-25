@@ -14,9 +14,9 @@ keyC = Key.create({name: "C"})
 keyD = Key.create({name: "D"})
 keyE = Key.create({name: "E"})
 
-catScales = Category.create({name: "Scales"})
-catChords = Category.create({name: "Chords"})
-catRythm = Category.create({name: "Rythm"})
+catScales = Category.create({name: "Scales", last_practiced: Date.today - 2})
+catChords = Category.create({name: "Chords", last_practiced: Date.today - 3})
+catRythm = Category.create({name: "Rythm", last_practiced: Date.today - 4})
 
 Exercise.create({
                     name: "Major Scale",
@@ -56,4 +56,14 @@ Exercise.create({
                     note: "Patterns",
                     key: keyC,
                     category: catChords
+                })
+
+Exercise.create({
+                    name: "Rythmic Study",
+                    last_practiced: Date.today,
+                    tempo: 100,
+                    time: 20,
+                    note: "Patterns",
+                    key: keyE,
+                    category: catRythm
                 })
