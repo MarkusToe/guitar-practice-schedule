@@ -1,0 +1,10 @@
+<h1>Guitar Practice Schedule for <%= Date.today %></h1>
+<% @categories.each do |c|  %>
+    <h2><%= c.name %></h2>
+    <% c.exercises.each do |e|  %>
+        <li>
+          <h3><%= e.name %></h3> <%= e.last_practiced %>
+          <p><%= e.key.name %></p>
+        </li>
+    <% end  %>
+<% end %>
