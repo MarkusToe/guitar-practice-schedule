@@ -5,3 +5,55 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Key.delete_all
+Category.delete_all
+Exercise.delete_all
+
+keyC = Key.create({name: "C"})
+keyD = Key.create({name: "D"})
+keyE = Key.create({name: "E"})
+
+catScales = Category.create({name: "Scales"})
+catChords = Category.create({name: "Chords"})
+catRythm = Category.create({name: "Rythm"})
+
+Exercise.create({
+                    name: "Major Scale",
+                    last_practiced: Date.today,
+                    tempo: 80,
+                    time: 20,
+                    note: "Patterns",
+                    key: keyC,
+                    category: catScales
+                })
+
+Exercise.create({
+                    name: "Minor Scale",
+                    last_practiced: Date.today,
+                    tempo: 80,
+                    time: 20,
+                    note: "Patterns",
+                    key: keyD,
+                    category: catScales
+                })
+
+Exercise.create({
+                    name: "Triads",
+                    last_practiced: Date.today,
+                    tempo: 80,
+                    time: 20,
+                    note: "Patterns",
+                    key: keyE,
+                    category: catChords
+                })
+
+Exercise.create({
+                    name: "Progressions",
+                    last_practiced: Date.today,
+                    tempo: 100,
+                    time: 20,
+                    note: "Patterns",
+                    key: keyC,
+                    category: catChords
+                })
