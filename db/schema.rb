@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025144841) do
+ActiveRecord::Schema.define(version: 20141025165410) do
 
   create_table "categories", force: true do |t|
-    t.string   "name"
+    t.string   "name",           limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "last_practiced"
   end
 
   create_table "exercises", force: true do |t|
-    t.string   "name"
-    t.date     "last_practiced"
+    t.string   "name",           limit: 255
+    t.time     "last_practiced"
     t.integer  "tempo"
     t.integer  "time"
     t.text     "note"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20141025144841) do
   end
 
   create_table "keys", force: true do |t|
-    t.string   "name"
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

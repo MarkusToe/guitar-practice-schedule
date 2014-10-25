@@ -20,7 +20,7 @@ catRythm = Category.create({name: "Rythm", last_practiced: Date.today - 4})
 
 Exercise.create({
                     name: "Major Scale",
-                    last_practiced: Date.today,
+                    last_practiced: Time.now - 10,
                     tempo: 80,
                     time: 20,
                     note: "Patterns",
@@ -30,7 +30,7 @@ Exercise.create({
 
 Exercise.create({
                     name: "Minor Scale",
-                    last_practiced: Date.today,
+                    last_practiced: Time.now - 8,
                     tempo: 80,
                     time: 20,
                     note: "Patterns",
@@ -40,7 +40,7 @@ Exercise.create({
 
 Exercise.create({
                     name: "Triads",
-                    last_practiced: Date.today,
+                    last_practiced: Time.now - 7,
                     tempo: 80,
                     time: 20,
                     note: "Patterns",
@@ -50,7 +50,7 @@ Exercise.create({
 
 Exercise.create({
                     name: "Progressions",
-                    last_practiced: Date.today,
+                    last_practiced: Time.now,
                     tempo: 100,
                     time: 20,
                     note: "Patterns",
@@ -60,7 +60,7 @@ Exercise.create({
 
 Exercise.create({
                     name: "Rythmic Study",
-                    last_practiced: Date.today,
+                    last_practiced: Time.now,
                     tempo: 100,
                     time: 20,
                     note: "Patterns",

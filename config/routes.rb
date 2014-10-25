@@ -1,6 +1,8 @@
 PracticeSchedule::Application.routes.draw do
   root "static_pages#home"
   get "category/show"
+
+  resources :exercises
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
