@@ -3,6 +3,7 @@ PracticeSchedule::Application.routes.draw do
   get "category/show"
 
   resources :exercises
+  resources :categories, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

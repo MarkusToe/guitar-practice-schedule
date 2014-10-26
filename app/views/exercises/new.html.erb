@@ -1,4 +1,10 @@
+<h1>New Exercise</h1>
 <%= bootstrap_form_for @exercise do |f| %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <%= f.collection_select :key_id, Key.all, :id, :name %>
     <%= f.text_field :name %>
+    <%= f.text_field :link %>
+    <%= f.text_field :tempo %>
+    <%= f.text_area :note %>
     <%= f.submit "Add Exercise" %>
 <% end  %>

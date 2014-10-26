@@ -1,9 +1,18 @@
 <h1>Guitar Practice Schedule for <%= Date.today %></h1>
 <% @categories.each do |c|  %>
-    <h2><%= c.name %></h2>
-    <% if c.recent_exercise %>
-        <h3><%= c.recent_exercise.name %> in <%= c.recent_exercise.key.name %></h3>
-        <p>Last practiced: <%= c.recent_exercise.last_practiced.to_date.strftime("%a %d.%m.%Y") %></p>
-        <%= link_to "Done", exercise_path(c.recent_exercise), method: :put, :class => "btn btn-default" %>
+    <% if c.recent_exercise  %>
+        <h2><%= c.name %></h2>
+        <% if c.recent_exercise %>
+            <h3><%= c.recent_exercise.name %> in <%= c.recent_exercise.key.name %></h3>
+            <% if c.recent_exercise.link %>
+                <h4 class="inline">Link:</h4> <a href="<%= c.recent_exercise.link %>" target="_blank"><%= c.recent_exercise.link %></a>
+            <% end  %>
+            <% if c.recent_exercise.note %>
+                <h4>Notes</h4>
+                <p><%= c.recent_exercise.note %></p>
+            <% end  %>
+            <p>Last practiced: <%= c.recent_exercise.last_practiced.strftime("%a %d.%m.%Y") %></p>
+            <%= link_to "Done", exercise_path(c.recent_exercise), method: :put, :class => "btn btn-default" %>
+        <% end %>
     <% end %>
 <% end %>

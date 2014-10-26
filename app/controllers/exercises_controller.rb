@@ -1,4 +1,19 @@
 class ExercisesController < ApplicationController
+  def new
+    @exercise = Exercise.new
+  end
+
+  def create
+    @exercise = Exercise.new(exercise_params)
+    @exercise.last_practiced = Time.now
+    if @exercise.save
+      flash[:success] = "New Exercise #{@exercise.name} added!"
+      redirect_to root_path
+    else
+      render 'new'
+    end
+  end
+
   def update
     @exercise = Exercise.find(params[:id])
 
@@ -12,5 +27,12 @@ class ExercisesController < ApplicationController
       flash[:error] = "Exercise could not be saved!"
       redirect_to root_path
     end
+  end
+
+  private
+
+  def exercise_params
+    params.require(:exercise).permit(:name, :category_id, :key_id,
+                                 :tempo, :note, :link)
   end
 end
