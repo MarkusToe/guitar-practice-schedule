@@ -12,7 +12,8 @@
                 <p><%= c.recent_exercise.note %></p>
             <% end  %>
             <p>Last practiced: <%= c.recent_exercise.last_practiced.strftime("%a %d.%m.%Y") %></p>
-            <%= link_to "Done", exercise_path(c.recent_exercise), method: :put, :class => "btn btn-default" %>
+            <p><%= link_to "Edit Exercise", edit_exercise_path(c.recent_exercise) %></p>
+            <%= link_to "Done", {controller: "exercises", action: "update_time", id: c.recent_exercise}, class: "btn btn-default" %>
         <% end %>
     <% end %>
 <% end %>

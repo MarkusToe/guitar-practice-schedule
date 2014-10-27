@@ -14,7 +14,7 @@ class ExercisesController < ApplicationController
     end
   end
 
-  def update
+  def update_time
     @exercise = Exercise.find(params[:id])
 
     current_key = @exercise.key
@@ -26,6 +26,21 @@ class ExercisesController < ApplicationController
     else
       flash[:error] = "Exercise could not be saved!"
       redirect_to root_path
+    end
+  end
+
+  def edit
+    @exercise = Exercise.find(params[:id])
+  end
+
+  def update
+    @exercise = Exercise.find(params[:id])
+
+    if @exercise.update_attributes(exercise_params)
+      flash[:success] = "Exercise updated"
+      redirect_to root_path
+    else
+      render 'edit'
     end
   end
 
