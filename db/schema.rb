@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026143322) do
+ActiveRecord::Schema.define(version: 20141030124752) do
+
+  create_table "archives", force: true do |t|
+    t.integer  "exercise_id"
+    t.integer  "tempo"
+    t.integer  "time"
+    t.text     "note"
+    t.text     "link"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "key_id"
+    t.integer  "category_id"
+  end
+
+  add_index "archives", ["exercise_id"], name: "index_archives_on_exercise_id"
 
   create_table "categories", force: true do |t|
     t.string   "name",           limit: 255

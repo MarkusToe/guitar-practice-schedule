@@ -1,0 +1,10 @@
+<h2>Exercise Archive</h2>
+
+<% @archives_days.sort.reverse.each do |month, archives| %>
+    <h3><%=h month.strftime("%a %d.%m.%Y") %></h3>
+    <ul>
+      <% for archive in archives %>
+          <li><%= archive.exercise.name %> in <%= archive.key.name %></li>
+      <% end %>
+    </ul>
+<% end %>

@@ -1,0 +1,10 @@
+<h1>Archive for <%= @exercise.name %></h1>
+<ul>
+    <% @archives.each do |a| %>
+        <li>
+          <p><%= a.created_at.strftime("%a %d.%m.%Y") %></p>
+          <h4><%= a.exercise.name %></h4>
+          <p>Tempo <%= a.tempo %></p>
+        </li>
+    <% end %>
+</ul>

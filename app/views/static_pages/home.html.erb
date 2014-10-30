@@ -2,6 +2,7 @@
 <% @categories.each do |c|  %>
     <% if c.recent_exercise  %>
         <h2><%= c.name %></h2>
+        <% # TODO - check done exercise for today - don't show next exercise %>
         <% if c.recent_exercise %>
             <h3><%= c.recent_exercise.name %> in <%= c.recent_exercise.key.name %></h3>
             <% if c.recent_exercise.link %>
@@ -13,6 +14,7 @@
             <% end  %>
             <p>Last practiced: <%= c.recent_exercise.last_practiced.strftime("%a %d.%m.%Y") %></p>
             <p><%= link_to "Edit Exercise", edit_exercise_path(c.recent_exercise) %></p>
+            <p><%= link_to "Show Archive", archive_path(c.recent_exercise) %></p>
             <%= link_to "Done", {controller: "exercises", action: "update_time", id: c.recent_exercise}, class: "btn btn-default" %>
         <% end %>
     <% end %>

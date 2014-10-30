@@ -21,11 +21,24 @@ class ExercisesController < ApplicationController
     new_key = Key.where.not(id: current_key.id).order("RANDOM()").first
 
     if @exercise.update_attribute(:last_practiced, Time.now) && @exercise.update_attribute(:key, new_key)
-      flash[:success] = "Exercise #{@exercise.name} in key #{new_key.name} done!"
-      redirect_to root_path
-    else
-      flash[:error] = "Exercise could not be saved!"
-      redirect_to root_path
+
+      @archive = Archive.new(tempo: @exercise.tempo,
+                             time: @exercise.time,
+                             note: @exercise.note,
+                             link: @exercise.link,
+                             exercise_id: @exercise.id,
+                             category_id: @exercise.category_id,
+                             key_id: @exercise.key_id
+      )
+
+      if @archive.save
+        flash[:success] = "Exercise #{@exercise.name} in key #{new_key.name} done and archived!"
+        redirect_to root_path
+      else
+        flash[:error] = "Exercise could not be saved!"
+        redirect_to root_path
+      end
+
     end
   end
 
@@ -37,6 +50,7 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find(params[:id])
 
     if @exercise.update_attributes(exercise_params)
+
       flash[:success] = "Exercise updated"
       redirect_to root_path
     else
