@@ -3,6 +3,10 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def show
+    @category = Category.find(params[:id])
+  end
+
   def create
     @category = Category.new(categories_params)
     @category.last_practiced = Time.now

@@ -1,7 +1,7 @@
 <h1>Guitar Practice Schedule for <%= Date.today %></h1>
 <% @categories.each do |c|  %>
     <% if c.recent_exercise  %>
-        <h2><%= c.name %></h2>
+        <h2><%= link_to c.name, category_path(c) %></h2>
         <% # TODO - check done exercise for today - don't show next exercise %>
         <% if c.recent_exercise %>
             <h3><%= c.recent_exercise.name %> in <%= c.recent_exercise.key.name %></h3>

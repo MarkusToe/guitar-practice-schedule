@@ -1,11 +1,10 @@
 PracticeSchedule::Application.routes.draw do
   root "static_pages#home"
-  get "category/show"
 
   get "update_time", to: "exercises#update_time", as: "update_time"
 
   resources :exercises
-  resources :categories, only: [:new, :create]
+  resources :categories, only: [:new, :create, :show]
   resources :archives, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
