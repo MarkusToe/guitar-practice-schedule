@@ -2,3 +2,48 @@
 @import "bootstrap";
 
 .inline { display: inline-block; }
+
+body { background: #f7f7f7; }
+
+/* #header */
+.navbar {
+  background: #ffffff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+}
+
+h1, h2 { font-family: 'Roboto', sans-serif; }
+
+h1.date {
+  font-weight: 900;
+  text-align: center;
+}
+
+.exercise {
+  background: #ffffff;
+  padding: 0 1em 1em 1em;
+
+  .header {
+    border-bottom: 1px solid #F7F7F7;
+    margin-bottom: .5em;
+    padding-top: 1em;
+    padding-bottom: .5em;
+  }
+
+  h3 {
+    margin: 0;
+    float: left;
+  }
+
+  h4 { color: #777777}
+
+  .icons {
+    float: right;
+
+    i {
+      color: #333333;
+    }
+
+    i:first-child { padding-right: 1em; }
+  }
+}
