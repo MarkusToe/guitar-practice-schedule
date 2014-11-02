@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+    console.log("loaded!");
+
+    $('.show-info').click(function (event) {
+        console.log("clicked!");
+        event.preventDefault();
+        $(this).parent().parent().next().slideToggle();
+        $(this).find('i').toggleClass('fa-flip-vertical');
+    });
+});
+
+

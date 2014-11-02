@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030124752) do
+ActiveRecord::Schema.define(version: 20141031121718) do
 
   create_table "archives", force: true do |t|
     t.integer  "exercise_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20141030124752) do
 
   create_table "exercises", force: true do |t|
     t.string   "name",           limit: 255
-    t.time     "last_practiced"
+    t.datetime "last_practiced"
     t.integer  "tempo"
     t.integer  "time"
     t.text     "note"

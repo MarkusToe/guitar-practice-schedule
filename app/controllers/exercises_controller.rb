@@ -20,7 +20,7 @@ class ExercisesController < ApplicationController
     current_key = @exercise.key
     new_key = Key.where.not(id: current_key.id).order("RANDOM()").first
 
-    if @exercise.update_attribute(:last_practiced, Time.now) && @exercise.update_attribute(:key, new_key)
+    if @exercise.update_attribute(:last_practiced, DateTime.now) && @exercise.update_attribute(:key, new_key)
 
       @archive = Archive.new(tempo: @exercise.tempo,
                              time: @exercise.time,

@@ -1,31 +1,36 @@
 <h1 class="date">Guitar Practice Schedule for <%= Date.today %></h1>
 <% @categories.each do |c|  %>
     <% if c.recent_exercise  %>
-        <h2><%= link_to c.name, category_path(c) %></h2>
         <% # TODO - check done exercise for today - don't show next exercise %>
 
         <div class="exercise">
-          <% if c.recent_exercise %>
-              <div class="header clearfix">
-                <h3><%= c.recent_exercise.name %> in <%= c.recent_exercise.key.name %></h3>
-                <div class="icons">
-                  <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_exercise_path(c.recent_exercise) %>
-                  <%= link_to '<i class="fa fa-area-chart"></i>'.html_safe, archive_path(c.recent_exercise) %>
-                </div>
-              </div>
-              <% if !c.recent_exercise.link.blank? %>
-                  <h4>Link:</h4>
-                  <a href="<%= c.recent_exercise.link %>" target="_blank"><%= c.recent_exercise.link %></a>
-              <% end %>
-              <% if !c.recent_exercise.note.blank? %>
-                  <h4>Notes</h4>
 
-                  <p><%= c.recent_exercise.note %></p>
-              <% end %>
-              <h4>Last practiced</h4>
-              <p><%= c.recent_exercise.last_practiced %></p>
-              <%= link_to "Done", {controller: "exercises", action: "update_time", id: c.recent_exercise}, class: "btn btn-default" %>
-          <% end %>
+            <% if c.recent_exercise %>
+                <div class="header clearfix <%= c.name.downcase.strip.delete(' ') %>">
+                  <h3><%= link_to c.name, category_path(c) %>: <%= c.recent_exercise.name %> in <%= c.recent_exercise.key.name %></h3>
+
+                  <div class="icons">
+                    <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_exercise_path(c.recent_exercise) %>
+                    <%= link_to '<i class="fa fa-area-chart"></i>'.html_safe, archive_path(c.recent_exercise) %>
+                    <%= link_to "Done", {controller: "exercises", action: "update_time", id: c.recent_exercise}, class: "btn btn-default" %>
+                    <a href="#" class="show-info"><i class="fa fa-sort-desc"></i></a>
+                  </div>
+                </div>
+              <div class="exercise-container">
+                <% if !c.recent_exercise.link.blank? %>
+                    <h4>Link</h4>
+                    <a href="<%= c.recent_exercise.link %>" target="_blank"><%= c.recent_exercise.link %></a>
+                <% end %>
+                <% if !c.recent_exercise.note.blank? %>
+                    <h4>Notes</h4>
+
+                    <p><%= c.recent_exercise.note %></p>
+                <% end %>
+                <h4>Last practiced</h4>
+
+                <p><%= c.recent_exercise.last_practiced.strftime("%a %d.%m.%Y") %></p>
+            <% end %>
+          </div>
         </div>
 
     <% end %>
