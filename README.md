@@ -1,1 +1,1 @@
-# Guitar Practice Schedule Generatorra
+# Guitar Practice Schedule Generator
