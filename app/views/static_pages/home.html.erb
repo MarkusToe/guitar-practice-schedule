@@ -7,7 +7,7 @@
 
             <% if c.recent_exercise %>
                 <div class="header clearfix <%= c.name.downcase.strip.delete(' ') %>">
-                  <h3><%= link_to c.name, category_path(c) %>: <%= c.recent_exercise.name %> in <%= c.recent_exercise.key.name %></h3>
+                  <h3><%= link_to c.name, category_path(c) %>: <%= c.recent_exercise.name %> in <%= c.recent_exercise.key.name %>, <%= c.recent_exercise.tempo %> BPM</h3>
 
                   <div class="icons">
                     <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_exercise_path(c.recent_exercise) %>
