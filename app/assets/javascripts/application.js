@@ -16,9 +16,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-
-    console.log("loaded!");
-
     $('.show-info').click(function (event) {
         console.log("clicked!");
         event.preventDefault();

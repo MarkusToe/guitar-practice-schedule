@@ -26,6 +26,9 @@ a { color: #4CA19E; }
   }
 }
 
+.fa-check { display: none; }
+.done .fa-check { display: inline; }
+
 h1, h2 { font-family: 'Roboto', sans-serif; }
 
 h1.date {
