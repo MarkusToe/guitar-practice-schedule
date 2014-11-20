@@ -14,17 +14,7 @@ body { background: #ffffff; }
 
 a { color: #4CA19E; }
 
-.btn {
-  background: transparent;
-  color: #ffffff;
-  border: 1px solid #ffffff;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);;
-    color: #ffffff;
-    border-color: #ffffff;
-  }
-}
 
 .fa-check { display: none; }
 .done .fa-check { display: inline; }
@@ -67,6 +57,18 @@ h2 {
     padding: 1em;
     border-radius: 5px 5px 0  0;
     color: #ffffff;
+
+    .btn {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);;
+        color: #ffffff;
+        border-color: #ffffff;
+      }
+    }
 
     a  {
       color: #ffffff;

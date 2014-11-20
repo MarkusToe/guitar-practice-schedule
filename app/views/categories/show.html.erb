@@ -1,6 +1,6 @@
 <h1><%= @category.name %></h1>
 <ul>
 <% @category.exercises.each do |e| %>
-    <li><%= e.name %></li>
+    <li><%= link_to e.name, edit_exercise_path(e) %></li>
 <% end %>
 </ul>
